@@ -11,15 +11,157 @@
     text-decoration: none;
     list-style: none;
 }
+/* body {
+    --mainColor: red;
+    --secondaryColor: #ff000059;
+    --thirdColor: #ff00008c;
+}
 
+body {
+    font-family: Montserrat Alternates,sans-serif;
+    background-color: var(--blackColor);
+    color: var(--whiteColor);
+    overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+    width: .8rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--secondaryColor);
+} */
+
+body{
+    color: #fff;
+    background-color: var(--blackColor);
+}
 nav{
-    background-color: var(--blackColor_50);
+    padding: 15px 0;
     position: sticky;
     z-index: 999;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.504);
 }
 nav .logo{
     width: 150px;
+    margin-right: 20px;
 }
 nav .logo img{
     width: 100%;
 }
+nav .nav-item{
+    padding: 8px 12px;
+    transition: 0.05s;
+}
+nav .nav-item:hover{
+    color: red;
+}
+nav .btn,
+.best-movie .btn{
+    color: var(--whiteColor);
+}
+nav .sign :first-child{
+    margin-right: 5px;
+    padding: 4px 15px;
+    background-color: transparent;
+    border: 1px solid red;
+}
+nav .sign :first-child:hover{
+    background-color: red;
+}
+nav .sign :last-child,
+.best-movie .btn{
+    background-color: red;
+    padding: 4px 15px;
+}
+nav .sign :last-child:hover,
+.best-movie .btn:hover{
+    background-color: rgba(212, 0, 0, 0.884);
+}
+/* ************************************************** */
+
+
+
+.best-movie{
+    width: 100%;
+    background-color: rgb(56, 44, 44);
+    position: absolute;
+    z-index: 1;
+    background-image: url(../images/uKb22E0nlzr914bA9KyA5CVCOlV.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.best-movie .container{
+    height: 100%;
+}
+.best-movie .movie-con{
+    width: 70%;
+}
+.best-movie .movie-con .img-con{
+    margin-right: 50px;
+    height: 350px;
+}
+.best-movie .img-con img{
+    height: 100%;
+}
+.best-movie .btn{
+    transition: 0.5s;
+}
+
+
+
+.movie-card {
+    background-color: #333;
+    color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .movie-card img {
+    max-width: 100%;
+    border-bottom: 2px solid #ff0000;
+  }
+
+  .movie-title {
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .scroll-container {
+    overflow-x: hidden; /* إخفاء شريط التمرير */
+    white-space: nowrap;
+    padding: 20px 0;
+  }
+
+  .movie-card {
+    display: inline-block;
+    width: 150px;
+    margin: 0 10px;
+  }
+
+  .scroll-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .scroll-btn {
+    background-color: #ff0000;
+    color: #fff;
+    margin: 0 10px;
+    border: none;
+    border-radius: 50px;
+    width: 70px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .scroll-btn:hover {
+    background-color: #e60000;
+  }
