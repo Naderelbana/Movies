@@ -1,0 +1,25 @@
+:root {
+    --whiteColor: #fff;
+    --blackColor: #000;
+    --blackColor_50: #00000080;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Rubik", sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+nav{
+    background-color: var(--blackColor_50);
+    position: sticky;
+    z-index: 999;
+}
+nav .logo{
+    width: 150px;
+}
+nav .logo img{
+    width: 100%;
+}
