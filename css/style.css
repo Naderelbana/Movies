@@ -7,9 +7,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Rubik", sans-serif;
-    text-decoration: none;
-    list-style: none;
+    text-decoration: none !important;
+    list-style: none !important;
+}
+a{
+  color: var(--whiteColor) !important;
 }
 /* body {
     --mainColor: red;
@@ -32,6 +34,7 @@ body::-webkit-scrollbar-track {
 } */
 
 body{
+  font-family: Montserrat Alternates, sans-serif;
     color: #fff;
     background-color: var(--blackColor);
 }
@@ -85,7 +88,7 @@ nav .sign :last-child:hover,
 .best-movie{
     padding: 50px 0;
     width: 100%;
-    background-color: rgb(56, 44, 44);
+    background-color: var(--blackColor_50);
     z-index: 1;
     background-image: url(../images/uKb22E0nlzr914bA9KyA5CVCOlV.jpg);
     background-position: center center;
@@ -221,3 +224,37 @@ nav .sign :last-child:hover,
   }
 
   /* ********************************* */
+
+/*   @media (min-width: 576px) {
+    .container {
+        max-width:540px
+    }
+}
+
+@media (min-width: 768px) {
+    .container{
+        max-width:720px
+    }
+}
+
+@media (min-width: 992px) {
+    .container{
+        max-width:960px
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width:1140px
+    }
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width:1320px
+    }
+} */
+
+footer .item img{
+  width: 150px;
+}
