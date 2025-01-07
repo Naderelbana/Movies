@@ -83,9 +83,9 @@ nav .sign :last-child:hover,
 
 
 .best-movie{
+    padding: 50px 0;
     width: 100%;
     background-color: rgb(56, 44, 44);
-    position: absolute;
     z-index: 1;
     background-image: url(../images/uKb22E0nlzr914bA9KyA5CVCOlV.jpg);
     background-position: center center;
@@ -97,6 +97,8 @@ nav .sign :last-child:hover,
 }
 .best-movie .movie-con{
     width: 70%;
+    border-radius: 20px;
+    background-color: #00000038;
 }
 .best-movie .movie-con .img-con{
     margin-right: 50px;
@@ -109,14 +111,15 @@ nav .sign :last-child:hover,
     transition: 0.5s;
 }
 
-
-
 .movie-card {
     background-color: #333;
     color: #fff;
     border-radius: 10px;
     overflow: hidden;
     text-align: center;
+  }
+  .movie-card:hover{
+    box-shadow: 0 0 5px 2px #ff0000;
   }
 
   .movie-card img {
@@ -131,11 +134,20 @@ nav .sign :last-child:hover,
   }
 
   .scroll-container {
-    overflow-x: hidden; /* إخفاء شريط التمرير */
+    overflow-x: auto; /* إخفاء شريط التمرير */
     white-space: nowrap;
     padding: 20px 0;
   }
-
+  .scroll-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 20px 0;
+    scrollbar-width: none; /* لإخفاء شريط التمرير في Firefox */
+  }
+  
+  .scroll-container::-webkit-scrollbar {
+    display: none; /* لإخفاء شريط التمرير في Chrome وEdge */
+  }
   .movie-card {
     display: inline-block;
     width: 150px;
@@ -146,9 +158,10 @@ nav .sign :last-child:hover,
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 50px;
   }
 
-  .scroll-btn {
+  .scroll-buttons .scroll-btn {
     background-color: #ff0000;
     color: #fff;
     margin: 0 10px;
@@ -162,6 +175,49 @@ nav .sign :last-child:hover,
     cursor: pointer;
   }
 
-  .scroll-btn:hover {
+  .scroll-buttons .scroll-btn:hover {
     background-color: #e60000;
   }
+
+
+/* ************************************* */
+  
+  .Now_Playing_Movies,
+  .Trending_Movies,
+  .Popular_Movies,
+  .UpComing_Movies{
+    margin: 50px 0;
+  }
+
+  .headingSec{
+    padding-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #e60000;
+  }
+  .headingSec div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .headingSec .scroll-btn {
+    background-color: transparent;
+    margin: 0 10px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .headingSec .scroll-btn span{
+    font-size: 30px;
+    color: #fff;
+    transition: 0.3s;
+  }
+
+  .headingSec .scroll-btn:hover span {
+    color: #e60000;
+  }
+
+  /* ********************************* */

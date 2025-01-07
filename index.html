@@ -77,12 +77,12 @@
                 <div class="container">
                     <div class="scroll-buttons">
                       <!-- زر السهم الأيسر -->
-                      <button class="scroll-btn" id="scroll-left">
+                      <button class="scroll-btn" data-scroll="left" data-target="bestMovies" id="scroll-left">
                         &#x25C0; <!-- رمز السهم الأيسر -->
                       </button>
                 
                       <!-- منطقة الأفلام -->
-                      <div class="scroll-container" id="scrollable">
+                      <div class="scroll-container" id="bestMovies">
                         <!-- بطاقة فيلم -->
                         <div class="movie-card">
                           <img src="https://via.placeholder.com/200x300" alt="Movie 1">
@@ -119,7 +119,7 @@
                       </div>
                 
                       <!-- زر السهم الأيمن -->
-                      <button class="scroll-btn" id="scroll-right">
+                      <button class="scroll-btn" data-scroll="right" data-target="bestMovies" id="scroll-right">
                         &#x25B6; <!-- رمز السهم الأيمن -->
                       </button>
                     </div>
@@ -128,30 +128,248 @@
                 
             </div>
         </section>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
-        <h1>1111111111111</h1>
+        <!-- ******************************** -->
+        <section class="Now_Playing_Movies" id="Now_Playing_Movies">
+          <div class="container">
+            <div class="headingSec">
+              <h2>Now Playing Movies</h2>
+              <div>
+                  
+              <!-- زر السهم الأيسر -->
+              <button class="scroll-btn" data-scroll="left" data-target="now_movie" id="scroll-left">
+                <span><</span> <!-- رمز السهم الأيسر -->
+              </button>
+              <!-- زر السهم الأيمن -->
+              <button class="scroll-btn" data-scroll="right" data-target="now_movie" id="scroll-right">
+                <span>></span> <!-- رمز السهم الأيمن -->
+              </button>
+              </div>
+            </div>
+            <div class="scroll-buttons">
+        
+              <!-- منطقة الأفلام -->
+              <div class="scroll-container" id="now_movie">
+                <!-- بطاقة فيلم -->
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 1">
+                  <div class="movie-title">فيلم 1</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 2">
+                  <div class="movie-title">فيلم 2</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 3">
+                  <div class="movie-title">فيلم 3</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 4">
+                  <div class="movie-title">فيلم 4</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+              </div>
+        
+              
+            </div>
+          </div>
+        </section>
+
+        <!-- ******************************** -->
+        <section class="Trending_Movies" id="Trending_Movies">
+          <div class="container">
+            <div class="headingSec">
+              <h2>Trending Movies</h2>
+              <div>
+                  
+              <!-- زر السهم الأيسر -->
+              <button class="scroll-btn" data-scroll="left" data-target="trending_movie" id="scroll-left">
+                <span><</span> <!-- رمز السهم الأيسر -->
+              </button>
+              <!-- زر السهم الأيمن -->
+              <button class="scroll-btn" data-scroll="right" data-target="trending_movie" id="scroll-right">
+                <span>></span> <!-- رمز السهم الأيمن -->
+              </button>
+              </div>
+            </div>
+            <div class="scroll-buttons">
+        
+              <!-- منطقة الأفلام -->
+              <div class="scroll-container" id="trending_movie">
+                <!-- بطاقة فيلم -->
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 1">
+                  <div class="movie-title">فيلم 1</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 2">
+                  <div class="movie-title">فيلم 2</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 3">
+                  <div class="movie-title">فيلم 3</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 4">
+                  <div class="movie-title">فيلم 4</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+              </div>
+        
+              
+            </div>
+          </div>
+        </section>
+
+
+        <!-- ******************************** -->
+        <section class="Popular_Movies" id="Popular_Movies">
+          <div class="container">
+            <div class="headingSec">
+              <h2>Popular Movies</h2>
+              <div>
+                  
+              <!-- زر السهم الأيسر -->
+              <button class="scroll-btn" data-scroll="left" data-target="popular_movie" id="scroll-left">
+                <span><</span> <!-- رمز السهم الأيسر -->
+              </button>
+              <!-- زر السهم الأيمن -->
+              <button class="scroll-btn" data-scroll="right" data-target="popular_movie" id="scroll-right">
+                <span>></span> <!-- رمز السهم الأيمن -->
+              </button>
+              </div>
+            </div>
+            <div class="scroll-buttons">
+        
+              <!-- منطقة الأفلام -->
+              <div class="scroll-container" id="popular_movie">
+                <!-- بطاقة فيلم -->
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 1">
+                  <div class="movie-title">فيلم 1</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 2">
+                  <div class="movie-title">فيلم 2</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 3">
+                  <div class="movie-title">فيلم 3</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 4">
+                  <div class="movie-title">فيلم 4</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+              </div>
+        
+              
+            </div>
+          </div>
+        </section>
+
+        <!-- ******************************** -->
+        <section class="UpComing_Movies" id="UpComing_Movies">
+          <div class="container">
+            <div class="headingSec">
+              <h2>Up Coming Movies</h2>
+              <div>
+                  
+              <!-- زر السهم الأيسر -->
+              <button class="scroll-btn" data-scroll="left" data-target="UpComing_movie" id="scroll-left">
+                <span><</span> <!-- رمز السهم الأيسر -->
+              </button>
+              <!-- زر السهم الأيمن -->
+              <button class="scroll-btn" data-scroll="right" data-target="UpComing_movie" id="scroll-right">
+                <span>></span> <!-- رمز السهم الأيمن -->
+              </button>
+              </div>
+            </div>
+            <div class="scroll-buttons">
+        
+              <!-- منطقة الأفلام -->
+              <div class="scroll-container" id="UpComing_movie">
+                <!-- بطاقة فيلم -->
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 1">
+                  <div class="movie-title">فيلم 1</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 2">
+                  <div class="movie-title">فيلم 2</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 3">
+                  <div class="movie-title">فيلم 3</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 4">
+                  <div class="movie-title">فيلم 4</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+                <div class="movie-card">
+                  <img src="https://via.placeholder.com/200x300" alt="Movie 5">
+                  <div class="movie-title">فيلم 5</div>
+                </div>
+              </div>              
+            </div>
+          </div>
+        </section>
     </main>
     
 
