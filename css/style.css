@@ -14,10 +14,10 @@
 a{
   color: var(--whiteColor) ;
 }
- body {
+body {
   --mainColor: red;
-    --secondaryColor: #ff000059;
-    --thirdColor: #ff00008c;
+  --secondaryColor: #ff000059;
+  --thirdColor: #ff00008c;
 }
 
 body {
@@ -220,12 +220,16 @@ nav .sign :last-child:hover,
 
 
 /* ************************************* */
-  
+
+.Trending_Movies,
+.UpComing_Movies{
+  background: #121010
+}
   .Now_Playing_Movies,
   .Trending_Movies,
   .Popular_Movies,
   .UpComing_Movies{
-    margin: 50px 0;
+    padding: 50px 0;
   }
   .Now_Playing_Movies .movie-card,
   .Trending_Movies .movie-card,
