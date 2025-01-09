@@ -88,26 +88,25 @@ nav .sign :last-child:hover,
 
 
 .best-movie{
-    padding: 50px 0;
     width: 100%;
     background-color: var(--blackColor_50);
-    z-index: 1;
-    background-image: url(../images/uKb22E0nlzr914bA9KyA5CVCOlV.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+.best-movie .best{
+  background-color: var(--blackColor_50);
 }
 .best-movie .container{
     height: 100%;
 }
 .best-movie .movie-con{
-    width: 70%;
+    width: 80%;
     border-radius: 20px;
-    background-color: #00000038;
 }
 .best-movie .movie-con .img-con{
     margin-right: 50px;
-    height: 350px;
+    height: 400px;
 }
 .best-movie .img-con img{
     height: 100%;
@@ -123,6 +122,7 @@ nav .sign :last-child:hover,
     overflow: hidden;
     text-align: center;
     position: relative;
+    cursor: pointer;
   }
 
   .movie-card img {
@@ -141,12 +141,31 @@ nav .sign :last-child:hover,
     justify-content: center;
     align-items: center;
     text-align: center;
-    font-size: .9rem;
+    font-size: 20px;
     font-weight: 600;
     padding: 5px;
     transition: opacity .4s;
     -webkit-transition: opacity .4s;
+    overflow-wrap: break-word;
+    white-space: normal;
+    height: auto;
   }
+  .vote {
+    width: 30px;
+    height: 30px;
+    padding: .5rem;
+    background-color: var(--mainColor);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    position: absolute;
+    top: 0;
+    right: 30px;
+    font-size: .8rem;
+    font-weight: 700;
+}
   .movie-card .owl_span:hover{
     opacity: 1;
   }
@@ -168,6 +187,7 @@ nav .sign :last-child:hover,
   }
   .movie-card {
     display: inline-block;
+    flex-wrap: wrap;
     width: 150px;
     height: 200px;
     margin: 0 10px;
@@ -206,6 +226,13 @@ nav .sign :last-child:hover,
   .Popular_Movies,
   .UpComing_Movies{
     margin: 50px 0;
+  }
+  .Now_Playing_Movies .movie-card,
+  .Trending_Movies .movie-card,
+  .Popular_Movies .movie-card,
+  .UpComing_Movies .movie-card{
+    width: 200px;
+    height: 300px;
   }
 
   .headingSec{
