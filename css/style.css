@@ -104,6 +104,13 @@ nav .sign :last-child:hover,
     width: 80%;
     border-radius: 20px;
 }
+.best-movie p,
+.best-movie pre{
+  font-size: 20px;
+}
+.best-movie h3{
+  font-weight: 700;
+}
 .best-movie .movie-con .img-con{
     margin-right: 50px;
     height: 400px;
@@ -115,7 +122,8 @@ nav .sign :last-child:hover,
     transition: 0.5s;
 }
 
-.movie-card {
+.movie-card,
+.bestmovie-card {
     background-color: #333;
     color: #fff;
     border-radius: 10px;
@@ -125,12 +133,14 @@ nav .sign :last-child:hover,
     cursor: pointer;
   }
 
-  .movie-card img {
+  .movie-card img,
+  .bestmovie-card img {
     width: 100%;
     height: 100%;
   }
 
-  .movie-card .owl_span{
+  .movie-card .owl_span,
+  .bestmovie-card .owl_span{
     position: absolute;
     color: var(--whiteColor);
     inset: 0;
@@ -166,7 +176,8 @@ nav .sign :last-child:hover,
     font-size: .8rem;
     font-weight: 700;
 }
-  .movie-card .owl_span:hover{
+  .movie-card .owl_span:hover,
+  .bestmovie-card .owl_span:hover{
     opacity: 1;
   }
 
@@ -185,7 +196,8 @@ nav .sign :last-child:hover,
   .scroll-container::-webkit-scrollbar {
     display: none; /* لإخفاء شريط التمرير في Chrome وEdge */
   }
-  .movie-card {
+  .movie-card,
+  .bestmovie-card {
     display: inline-block;
     flex-wrap: wrap;
     width: 150px;

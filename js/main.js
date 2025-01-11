@@ -1,4 +1,3 @@
-// التعامل مع جميع الأزرار باستخدام الحدث العام
 document.addEventListener("click", function (e) {
   const btn = e.target.closest(".scroll-btn");
   if (btn) {
@@ -8,7 +7,7 @@ document.addEventListener("click", function (e) {
 
     if (scrollContainer) {
       scrollContainer.scrollBy({
-        left: direction === "left" ? -200 : 200, // اتجاه التمرير
+        left: direction === "left" ? -200 : 200,
         behavior: "smooth",
       });
     }
@@ -28,6 +27,10 @@ const get_top_rated_Movie = 'movie/top_rated';
 const get_upcoming_Movie = 'discover/movie';
 const get_trending_Movie = 'trending/movie/week';
 
+
+let current_index = 0;
+let genres="";
+
 getAllMovies()
 
 function getAllMovies(){
@@ -40,52 +43,45 @@ function getAllMovies(){
 //https://api.themoviedb.org/3   /movie/550   ?api_key=''
 
 
-/* let movie_details = [];
-let movie_id = 558449;
-let id;
-async function get_movie_details(id) {
-  let res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`);
-  let result = await res.json();
-  movie_details = result;
-  for (let i = 0; i < movie_details.genres.length; i++) {
-    console.log(movie_details.genres[i].name);
-  }
-  console.log(movie_details);
-}
-
-get_movie_details(movie_id) */
 
 
-let movie_details = [];
 let topRated_movie = [];
 async function get_topRated_movies() {
   let res = await fetch(`${base_url}/${get_top_rated_Movie}?api_key=${api_key}`);
   let result = await res.json();
   topRated_movie = result.results;
   console.log(topRated_movie);
+  localStorage.setItem('id',topRated_movie[current_index].id)
   dis_topRated_movies()
+  
 }
-function dis_topRated_movies(){
+async function dis_topRated_movies(){
+  await get_movie_details(topRated_movie[0].id)
+  console.log(genres);
+  
   let topRated_con = ``;
   let topRated_card = ``;
-
+  /* get_movie_details(); */
   topRated_con +=`
     <div class="img-con">
       <img src="${base_img}${topRated_movie[0].poster_path}" alt="${topRated_movie[0].title}">
     </div>
     <div class="img-info">
         <h3>${topRated_movie[0].title}</h3>
-        <p>${topRated_movie[0].release_date}</p>
-        <p>Lorem ipsum dolor sit amet consectetur.</p>
-        <p>${topRated_movie[0].vote_average.toFixed(1)}</p>
+        <p>Released :- ${topRated_movie[0].release_date}</p>
+        <pre>generc :- ${genres}</pre>
+        <p><i class="fa fa-star text-warning"></i>${topRated_movie[0].vote_average.toFixed(1)}</p>
         <p>${topRated_movie[0].overview}</p>
         <div class="d-flex align-items-center gap-3">
             <button class="btn">
               <i class="fa fa-play-circle"></i>
               View Trailer</button>
-            <button class="btn">
+              <a href="movieDetails.html">
+              <button class="btn">
               <i class="fa fa-eye"></i>
               View Details</button>
+              </a>
+            
         </div>
     </div>
     `
@@ -93,7 +89,7 @@ function dis_topRated_movies(){
   for (let i = 0; i < topRated_movie.length; i++) {
     
     topRated_card +=`
-      <div class="movie-card">
+      <div class="bestmovie-card">
         <img src="${base_img}${topRated_movie[i].poster_path}" alt="${topRated_movie[i].title}">
         <span class="owl_span">${topRated_movie[i].title}</span>
     </div>
@@ -104,53 +100,98 @@ function dis_topRated_movies(){
   document.querySelector('.best-movie').style.backgroundImage = `url('${base_img}${topRated_movie[0].poster_path}')`
 
 
-
+  genres=""
   // إضافة حدث النقر على بطاقات الأفلام
-  const movieCards = document.querySelectorAll('.best-movie .movie-card');
+  const movieCards = document.querySelectorAll('.best-movie .bestmovie-card');
   movieCards.forEach((card) => {
     card.addEventListener('click', function () {
       // استخدام indexOf لتحديد الإندكس
       const cardsArray = Array.from(movieCards); // تحويل NodeList إلى Array
       const index = cardsArray.indexOf(this); // الحصول على ترتيب العنصر
+      current_index = cardsArray.indexOf(this);
+      localStorage.setItem('id',topRated_movie[current_index].id)
+      
       if (index !== -1) {
         updateMovieDetails(index);
+        console.log(current_index);
+        
       } else {
         console.error("Index not found");
       }
     });
   });
 }
-function updateMovieDetails(index) {
-  const movie = topRated_movie[index];
 
+
+let movie_details = [];
+
+async function get_movie_details(id) {
+  let res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${api_key}`);
+  let result = await res.json();
+  movie_details = result;
+  /* console.log(current_index); */
+      for (let i = 0; i < movie_details.genres.length; i++) {
+    genres = genres + movie_details.genres[i].name + "   ";
+  }
+  
+  
+  /* console.log(genres); */
+  console.log(movie_details);
+  
+}
+
+
+
+
+let _id;
+async function updateMovieDetails(index) {
+
+  console.log(topRated_movie[index].id);
+  _id = topRated_movie[index].id
+  await get_movie_details(_id)
+  console.log(genres);
+  
+  const movie = movie_details;
+  /* get_movie_details() */
+  
   const topRated_con = `
     <div class="img-con">
       <img src="${base_img}${movie.poster_path}" alt="${movie.title}">
     </div>
     <div class="img-info">
         <h3>${movie.title}</h3>
-        <p>${movie.release_date}</p>
-        <p>Lorem ipsum dolor sit amet consectetur.</p>
-        <p>${movie.vote_average.toFixed(1)}</p>
+        <p>Released :- ${movie.release_date}</p>
+        <pre>generc :- ${genres}</pre>
+        <p><i class="fa fa-star text-warning"></i>${movie.vote_average.toFixed(1)}</p>
         <p>${movie.overview}</p>
         <div class="d-flex align-items-center gap-3">
             <button class="btn">
               <i class="fa fa-play-circle"></i>
               View Trailer</button>
-            <button class="btn">
+            <a href="movieDetails.html">
+              <button class="btn">
               <i class="fa fa-eye"></i>
               View Details</button>
+              </a>
         </div>
     </div>
   `;
-
+  
   // تحديث تفاصيل الفيلم في الحاوية
   document.querySelector('.best-movie .movie-con').innerHTML = topRated_con;
 
   // تحديث خلفية القسم
   document.querySelector('.best-movie').style.backgroundImage = `url('${base_img}${movie.poster_path}')`;
-  
+  genres="";
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -260,7 +301,6 @@ function dis_upcoming_movies(){
   }
   document.getElementById('UpComing_movie').innerHTML = upcoming
 }
-
 
 
 
