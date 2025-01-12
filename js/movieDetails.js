@@ -1,3 +1,20 @@
+document.addEventListener("click", function (e) {
+    const btn = e.target.closest(".scroll-btn");
+    if (btn) {
+      const targetId = btn.getAttribute("data-target");
+      const direction = btn.getAttribute("data-scroll");
+      const scrollContainer = document.getElementById(targetId);
+  
+      if (scrollContainer) {
+        scrollContainer.scrollBy({
+          left: direction === "left" ? -200 : 200,
+          behavior: "smooth",
+        });
+      }
+    }
+  });
+
+
 const api_key = "812d6823c11632890e0578b01bab0bb8";
 const token ="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MTJkNjgyM2MxMTYzMjg5MGUwNTc4YjAxYmFiMGJiOCIsIm5iZiI6MTczNTc1Mzc4MC45ODEsInN1YiI6IjY3NzU4MDM0OThmMmY4MmZjNDkyYmY1ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TQwDcxy6ALgKhPeQh-ZmjBnb6SRaD17QoP2sM-mQPHs";
 
@@ -26,12 +43,29 @@ async function get_movie_details(id) {
   disdetails();
 }
 
-function disdetails(){
-    
+let movie_cast = [];
+let key='';
+async function get_movie_cast(id) {
+    let res = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api_key}`);
+    let result = await res.json();
+    movie_cast = result.results;
+    for (let i = 0; i < movie_cast.length; i++) {
+        if (movie_cast[i].type.toLowerCase().includes('trailer')) {
+            key = movie_cast[i].key;
+            console.log(movie_cast[i].key);
+            break
+        }
+    } 
+    console.log(movie_cast);
+}
+
+
+async function disdetails(){
+    await get_movie_cast(_id)
     let details = ``;
+    let trailer = ``;
 
     details =`
-
     <div class="details">
             <h2 class="mb-4">${movie_details.title}</h2>
             <span>Overview</span>
@@ -62,10 +96,27 @@ function disdetails(){
         <div class="img-con">
             <img src="${base_img}${movie_details.poster_path}" alt="${movie_details.title}">
         </div>
-
+    `
+    trailer = `
+        <h2 class="mb-4">Movie Trailer</h2>
+        <iframe
+        id="youtube-video"
+        width="100%"
+        height="500"
+        src="https://www.youtube.com/embed/${key}"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+        </iframe>
     `
 
 document.querySelector('.movieDetails .container').innerHTML = details
+document.querySelector('.trailer .container').innerHTML = trailer
 }
 
 get_movie_details(_id)
+
+
+
+

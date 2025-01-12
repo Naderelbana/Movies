@@ -2,10 +2,13 @@
 body{
     background-color: var(--grayColor);
 }
-.movieDetails .container{
+.movieDetails .container,
+.trailer .container{
     border-bottom: 3px solid #e60000;
 }
-.movieDetails{
+.movieDetails,
+.trailer,
+.movieCast{
     margin-bottom: 50px;
 }
 .movieDetails span{
@@ -21,8 +24,10 @@ body{
 .movieDetails .details{
     width: 60%;
 }
-.movieDetails h2{
+h2{
     font-size: 50px;
+    color: var(--whiteColor)
+    
 }
 .movieDetails .img-con{
     margin-left: 50px;
@@ -35,4 +40,15 @@ img{
 p,pre{
     margin: 8px 0;
     font-size: 20px;
+}
+
+.movieCast .movie-card{
+    width: 200px;
+    height: 350px;
+}
+.movieCast img{
+    height: 80%;
+}
+h5{
+    color: #ffffff99;
 }

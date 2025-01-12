@@ -124,7 +124,6 @@ nav .sign :last-child:hover,
 
 .movie-card,
 .bestmovie-card {
-    background-color: #333;
     color: #fff;
     border-radius: 10px;
     overflow: hidden;
@@ -258,7 +257,7 @@ nav .sign :last-child:hover,
     align-items: center;
     border-bottom: 3px solid #e60000;
   }
-  .headingSec div{
+  .headingSec .lr{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -307,6 +306,9 @@ nav .sign :last-child:hover,
         max-width:1320px
     }
 } */
+footer{
+  background-color: var(--blackColor);
+}
 footer .item img{
   width: 150px;
 }
