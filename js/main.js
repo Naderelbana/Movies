@@ -14,6 +14,10 @@ document.addEventListener("click", function (e) {
   }
 });
 
+
+
+
+
 const api_key = "812d6823c11632890e0578b01bab0bb8";
 const token ="eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4MTJkNjgyM2MxMTYzMjg5MGUwNTc4YjAxYmFiMGJiOCIsIm5iZiI6MTczNTc1Mzc4MC45ODEsInN1YiI6IjY3NzU4MDM0OThmMmY4MmZjNDkyYmY1ZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TQwDcxy6ALgKhPeQh-ZmjBnb6SRaD17QoP2sM-mQPHs";
 
@@ -210,9 +214,8 @@ function dis_now_playing_movies(){
   let now_Playing_Movie = ``;
   for (let i = 0; i < now_movies.length; i++) {
     now_Playing_Movie +=`
-
-    <div class="movie-card">
-      <a href="#">
+    <div class="movie-card" data-id="${now_movies[i].id}">
+      <a href="movieDetails.html">
         <img src="${base_img}${now_movies[i].poster_path}" alt="${now_movies[i].title}">
         <span class="owl_span">${now_movies[i].title}</span>
         <div class="vote">${now_movies[i].vote_average.toFixed(1)}</div>
@@ -238,8 +241,8 @@ function dis_trending_movies(){
   for (let i = 0; i < trending_movie.length; i++) {
     trending +=`
 
-    <div class="movie-card">
-      <a href="#">
+    <div class="movie-card" data-id="${trending_movie[i].id}">
+      <a href="movieDetails.html">
         <img src="${base_img}${trending_movie[i].poster_path}" alt="${trending_movie[i].title}">
         <span class="owl_span">${trending_movie[i].title}</span>
         <div class="vote">${trending_movie[i].vote_average.toFixed(1)}</div>
@@ -264,8 +267,8 @@ function dis_popular_movies(){
   for (let i = 0; i < popular_Movie.length; i++) {
     popular +=`
 
-    <div class="movie-card">
-      <a href="#">
+    <div class="movie-card" data-id="${popular_Movie[i].id}">
+      <a href="movieDetails.html">
         <img src="${base_img}${popular_Movie[i].poster_path}" alt="${popular_Movie[i].title}">
         <span class="owl_span">${popular_Movie[i].title}</span>
         <div class="vote">${popular_Movie[i].vote_average.toFixed(1)}</div>
@@ -290,8 +293,8 @@ function dis_upcoming_movies(){
   for (let i = 0; i < upcoming_movie.length; i++) {
     upcoming +=`
 
-    <div class="movie-card">
-      <a href="#">
+    <div class="movie-card" data-id="${upcoming_movie[i].id}">
+      <a href="movieDetails.html">
         <img src="${base_img}${upcoming_movie[i].poster_path}" alt="${upcoming_movie[i].title}">
         <span class="owl_span">${upcoming_movie[i].title}</span>
         <div class="vote">${upcoming_movie[i].vote_average.toFixed(1)}</div>
@@ -301,6 +304,21 @@ function dis_upcoming_movies(){
   }
   document.getElementById('UpComing_movie').innerHTML = upcoming
 }
+
+
+
+
+
+document.addEventListener('click', function (e) {
+  const card = e.target.closest('.movie-card'); // البحث عن البطاقة الأقرب للعنصر الذي تم النقر عليه
+  if (card) {
+    const movieId = card.getAttribute('data-id');
+    localStorage.setItem('id', movieId)
+    // يمكنك هنا تنفيذ أي عملية بناءً على الـ id
+    // مثل عرض تفاصيل الفيلم أو الانتقال إلى صفحة التفاصيل
+  }
+});
+
 
 
 

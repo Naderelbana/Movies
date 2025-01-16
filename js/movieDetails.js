@@ -43,25 +43,25 @@ async function get_movie_details(id) {
   disdetails();
 }
 
-let movie_cast = [];
+let movie_trailer = [];
 let key='';
-async function get_movie_cast(id) {
+async function get_movie_trailer(id) {
     let res = await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=${api_key}`);
     let result = await res.json();
-    movie_cast = result.results;
-    for (let i = 0; i < movie_cast.length; i++) {
-        if (movie_cast[i].type.toLowerCase().includes('trailer')) {
-            key = movie_cast[i].key;
-            console.log(movie_cast[i].key);
+    movie_trailer = result.results;
+    for (let i = 0; i < movie_trailer.length; i++) {
+        if (movie_trailer[i].type.toLowerCase().includes('trailer')) {
+            key = movie_trailer[i].key;
+            console.log(movie_trailer[i].key);
             break
         }
     } 
-    console.log(movie_cast);
+    console.log(movie_trailer);
 }
 
 
 async function disdetails(){
-    await get_movie_cast(_id)
+    await get_movie_trailer(_id)
     let details = ``;
     let trailer = ``;
 
@@ -120,3 +120,32 @@ get_movie_details(_id)
 
 
 
+let movie_cast = [];
+async function get_movie_cast(id) {
+    let res = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${api_key}`);
+    let result = await res.json();
+    movie_cast = result.cast;
+    console.log(movie_cast);
+    dis_cast()
+}
+get_movie_cast(_id)
+
+function dis_cast() {
+  let cast = ``;
+  for (let i = 0; i < movie_cast.length; i++) {
+    let imgSrc = movie_cast[i].profile_path !== null ? `${base_img}${movie_cast[i].profile_path}` : "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+    cast += `
+    <div class="movie-card">
+      <a href="#">
+      <img src="${imgSrc}" alt="${movie_cast[i].name}">
+      <span class="owl_span">Show Actor / Actress Info</span>
+      <div class="name d-flex flex-column justify-content-lg-start align-items-lg-start">
+        <h4>${movie_cast[i].name} |</h4>
+        <h5>${movie_cast[i].character}</h5>
+      </div>
+      </a>
+    </div>
+    `;
+  }
+  document.getElementById('movie_cast').innerHTML = cast;
+}
